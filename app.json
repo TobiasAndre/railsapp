@@ -1,0 +1,27 @@
+{
+  "name": "railsapp",
+  "description": "railsapp",
+  "keywords": [
+    "productivity",
+    "HTML5"
+  ],
+  "website": "https://railsapp.opentracking.tech/",
+  "env": {
+    "DOKKU_LETSENCRYPT_EMAIL": {
+      "description": "Letsencrypt email address",
+      "value": "tobias_andre@icloud.com"
+    },
+    "RAILS_MASTER_KEY": {
+      "description": "Rails master key",
+      "value": "95d67f49770d9f8b604297e17924321b"
+    }
+  },
+  "dokku":{
+    "plugins":[
+      "postgres"
+    ],
+    "volumes":[
+      {"host":"/var/lib/dokku/data/storage","app":"/storage"}
+    ]
+  }
+}

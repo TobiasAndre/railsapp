@@ -12,7 +12,7 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - name: printing variable
-        run: echo "RAILS_KEY= ${{ secrets.MASTER_KEY }}"
+        run: echo "RAILS_KEY= ${{ env.MASTER_KEY }}"
          
   build:
     name: Deploy

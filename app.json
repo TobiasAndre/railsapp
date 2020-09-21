@@ -18,13 +18,7 @@
   },
   "dokku":{
     "plugins":[
-      {
-        "name": "postgres"
-      },
-      {
-        "name": "redis",
-        "commands":["dokku letsencrypt railsapp"]
-      }
+      "postgres","redis"
     ],
     "volumes":[
       {"host":"/var/lib/dokku/data/storage","app":"/storage"}

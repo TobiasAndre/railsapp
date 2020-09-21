@@ -30,15 +30,6 @@ jobs:
           echo "   repository : ${{ env.GITHUB_REPOSITORY_SLUG_URL }}"
           echo "Short SHA variables"
           echo "   sha        : ${{ env.GITHUB_SHA_SHORT }}"
-      - name: dokku application steps via ssh
-        uses: docker://evaneos/ssh-action:0.1.0
-        with:
-          hosts: ${{ secrets.DOKKU_HOST }}
-          user: root
-          private_key: ${{ secrets.KEY_SSH_DEPLOY }}
-          commands: |
-            export BASE_BRANCH=${{ env.GITHUB_HEAD_REF_SLUG_URL }}
-            sh ./scripts/deploy.sh $BASE_BRANCH
 
   build:
     name: Deploy
@@ -51,6 +42,6 @@ jobs:
         with:
           PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
           PUBLIC_KEY: ${{ secrets.SSH_PUBLIC_KEY }}
-          HOST: opentracking.tech
+          HOST: ${{ secrets.DOKKU_HOST }}
           PROJECT: 'railsapp'
           BRANCH: master

@@ -18,8 +18,10 @@ jobs:
           user: root
           private_key: ${{ secrets.KEY_SSH_DEPLOY }}
           commands: |
+            export BASE_BRANCH=${{ github.head_ref }}
             export MYKEY=${{ secrets.MASTER_KEY }}
             echo "MYKEY = $MYKEY"
+            echo "BASE_BRANCH= $BASE_BRANCH"
             dokku config:set railsapp RAILS_MASTER_KEY= $MYKEY
   
   build:

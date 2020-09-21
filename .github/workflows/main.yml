@@ -16,7 +16,7 @@ jobs:
         with:
           hosts: ${{ secrets.DOKKU_HOST }}
           user: root
-          private_key: ${{ secrets.SSH_PRIVATE_KEY }}
+          private_key: ${{ secrets.KEY_SSH_DEPLOY }}
           commands: |
             export MYKEY=${{ secrets.MASTER_KEY }}
             echo "MYKEY = $MYKEY"

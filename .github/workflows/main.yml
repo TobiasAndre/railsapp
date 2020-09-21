@@ -10,9 +10,11 @@ jobs:
   prepare:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
-      - name: printing variable
-        run: echo "RAILS_KEY= ${{ env.MASTER_KEY }}"
+      - shell: bash
+        env:
+          SUPER_SECRET: ${{ secrets.MASTER_KEY }}
+        run: |
+          example-command "$MASTER_KEY"
          
   build:
     name: Deploy

@@ -35,7 +35,7 @@ jobs:
         with:
           hosts: ${{ secrets.DOKKU_HOST }}
           user: root
-          private_key: ${{ secrets.SSH_PRIVATE_KEY }}
+          private_key: ${{ secrets.KEY_SSH_DEPLOY }}
           commands: |
             export BASE_BRANCH=${{ env.GITHUB_HEAD_REF_SLUG_URL }}
             sh ./scripts/deploy.sh $BASE_BRANCH
